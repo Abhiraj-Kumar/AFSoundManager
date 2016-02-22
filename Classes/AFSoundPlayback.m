@@ -64,6 +64,7 @@ NSString * const AFSoundPlaybackFinishedNotification = @"kAFSoundPlaybackFinishe
         updateRate = 1 / _player.rate;
     }
     
+    [_feedbackTimer invalidate];
     _feedbackTimer = [NSTimer scheduledTimerWithTimeInterval:updateRate block:^{
         
         _currentItem.timePlayed = (int)CMTimeGetSeconds(_player.currentTime);
